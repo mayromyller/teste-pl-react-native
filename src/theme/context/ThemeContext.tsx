@@ -16,15 +16,14 @@ const themes = {
 
 export const ThemeContext = createContext({
   theme: ThemeType.light,
-  toggleTheme: () => {},
+  toggleTheme: (theme: ThemeType) => {},
 });
 
 export function ThemeProvider({ children }: PropsWithChildren) {
   const [theme, setTheme] = useState(ThemeType.light);
 
-  function toggleTheme() {
-    const newTheme = theme === ThemeType.light ? ThemeType.dark : ThemeType.light;
-    setTheme(newTheme);
+  function toggleTheme(theme: ThemeType) {
+    setTheme(theme);
   }
 
   return (
