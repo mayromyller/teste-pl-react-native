@@ -1,5 +1,6 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { TouchableOpacity, View } from 'react-native';
+import { useTheme } from 'styled-components';
 
 import { tabBarOptions } from './tabOptions';
 import { BottomTabParamList } from '../app-tab.routes';
@@ -7,12 +8,14 @@ import { BottomTabParamList } from '../app-tab.routes';
 import { BottomTabIcon } from '~/components/icons/bottomTabIcon';
 
 export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
+  const { colors } = useTheme();
+
   return (
     <View
       style={{
         flexDirection: 'row',
         paddingBottom: 8,
-        backgroundColor: '#fff',
+        backgroundColor: colors.cardBackground,
         alignItems: 'center',
         height: 72,
         gap: 4,
@@ -59,9 +62,9 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
               height: '100%',
             }}>
             {isFocused ? (
-              <BottomTabIcon name={tabItem.icons.focused} color="#6759FF" />
+              <BottomTabIcon name={tabItem.icons.focused} color={colors.activeTab} />
             ) : (
-              <BottomTabIcon name={tabItem.icons.focused} color="#6F767E" />
+              <BottomTabIcon name={tabItem.icons.focused} color={colors.inactiveTab} />
             )}
           </TouchableOpacity>
         );
