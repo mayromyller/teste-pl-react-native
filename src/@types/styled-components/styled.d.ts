@@ -1,6 +1,6 @@
-import 'styled-components';
+import 'styled-components/native';
 
-declare module 'styled-components' {
+declare module 'styled-components/native' {
   export interface DefaultTheme {
     colors: {
       white: string;
@@ -21,6 +21,11 @@ declare module 'styled-components' {
       neutral: string;
       activeTab: string;
       inactiveTab: string;
+
+      // specific drawer colors
+      drawerActiveBackgroundColor: string;
+      drawerActiveTintColor: string;
+      drawerInactiveTintColor: string;
     };
   }
 }

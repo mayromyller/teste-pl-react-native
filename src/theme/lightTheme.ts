@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components/native';
 
 export const lightTheme: DefaultTheme = {
   colors: {
@@ -7,7 +7,7 @@ export const lightTheme: DefaultTheme = {
     cardBackground: '#FFFFFF',
     backgroundMainSearchInput: '#FBFBFB',
     borderMainSearchInput: '#F2F2F2',
-    drawerBackground: '#18202E',
+    drawerBackground: '#6759FF',
     helpText: '#636A75',
     text: '#1A1D1F',
     primary: '#6759FF',
@@ -20,5 +20,8 @@ export const lightTheme: DefaultTheme = {
     neutral: '#CABDFF',
     activeTab: '#6759FF',
     inactiveTab: '#6F767E',
+    drawerActiveBackgroundColor: '#FFFFFF',
+    drawerActiveTintColor: '#6759FF',
+    drawerInactiveTintColor: '#D1D3D4',
   },
 };
