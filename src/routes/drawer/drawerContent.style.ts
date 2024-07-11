@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components/native';
 
-export const Box = styled.View`
+export const Box = styled.Pressable`
   ${({ theme }) => css`
-    padding: 12px;
+    padding: 12px 32px;
     align-items: center;
-    justify-content: center;
     flex-direction: row;
     gap: 12px;
     margin-bottom: 30px;
