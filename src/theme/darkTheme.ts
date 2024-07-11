@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components/native';
 
 export const darkTheme: DefaultTheme = {
   colors: {
@@ -20,5 +20,8 @@ export const darkTheme: DefaultTheme = {
     neutral: '#CABDFF',
     activeTab: '#FFFFFF',
     inactiveTab: '#6F767E',
+    drawerActiveBackgroundColor: '#2F3643',
+    drawerActiveTintColor: '#FFFFFF',
+    drawerInactiveTintColor: '#6F767E',
   },
 };
