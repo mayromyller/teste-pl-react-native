@@ -1,4 +1,5 @@
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from 'styled-components/native';
@@ -12,6 +13,12 @@ export function DrawerContent(props: any) {
   const { colors } = useTheme();
   const { bottom } = useSafeAreaInsets();
 
+  const navigation = useNavigation();
+
+  function handleNavigateToProfile() {
+    navigation.navigate('ProfileScreen');
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
@@ -21,7 +28,7 @@ export function DrawerContent(props: any) {
           flex: 1,
           backgroundColor: colors.drawerBackground,
         }}>
-        <S.Box>
+        <S.Box onPress={handleNavigateToProfile}>
           <S.UserImage
             source={{ uri: 'https://github.com/mayromyller.png' }}
             alt="Imagem do usuário"

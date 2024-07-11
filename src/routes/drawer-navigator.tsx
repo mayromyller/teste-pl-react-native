@@ -9,6 +9,7 @@ import { DrawerContent } from './drawer/drawerContent';
 import { CalendarIcon } from '~/assets/icons/calendarIcon';
 import { MapIcon } from '~/assets/icons/mapIcon';
 import { NotificationIcon } from '~/assets/icons/notificationIcon';
+import { OffersIcon } from '~/assets/icons/offersIcon';
 import { PersonIcon } from '~/assets/icons/personsIcon';
 import { PhoneIcon } from '~/assets/icons/phoneIcon';
 import { WalletIcon } from '~/assets/icons/walletIcon';
@@ -74,7 +75,7 @@ export default function DrawerNavigator({ navigation }: Props) {
         component={AppTabRoutes}
         options={{
           drawerLabel: 'Offers',
-          drawerIcon: ({ color, size }) => <WalletIcon size={size} color={color} />,
+          drawerIcon: ({ color, size }) => <OffersIcon size={size} color={color} />,
         }}
       />
       <Drawer.Screen
