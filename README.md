@@ -40,7 +40,7 @@ Para iniciar o servidor local, execute o seguinte comando:
 yarn start
 ```
 
-Utilizando aplicativo [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR), aponte a camera para o QRCode para que o projeto possa ser executado.
+Utilizando aplicativo [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR), escaneie o QRCode para executar o projeto.
 
 ## Uso
 
