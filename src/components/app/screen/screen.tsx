@@ -13,18 +13,13 @@ export interface ScreenProps {
 
 export function Screen({ children, scrollable = false, headerComponent }: ScreenProps) {
   const { colors } = useTheme();
-  const { top, bottom } = useSafeArea();
+  const { bottom } = useSafeArea();
 
   const Container = scrollable ? ScrollViewContainer : ViewContainer;
 
   return (
     <>
-      <View
-        style={{
-          paddingTop: top,
-        }}>
-        {headerComponent}
-      </View>
+      <View>{headerComponent}</View>
       <Container backgroundColor={colors.background}>
         <View
           style={{
