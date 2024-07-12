@@ -23,5 +23,6 @@ export const lightTheme: DefaultTheme = {
     drawerActiveBackgroundColor: '#FFFFFF',
     drawerActiveTintColor: '#6759FF',
     drawerInactiveTintColor: '#D1D3D4',
+    textInfo: '#172B4D',
   },
 };

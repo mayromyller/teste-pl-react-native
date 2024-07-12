@@ -23,5 +23,6 @@ export const darkTheme: DefaultTheme = {
     drawerActiveBackgroundColor: '#2F3643',
     drawerActiveTintColor: '#FFFFFF',
     drawerInactiveTintColor: '#6F767E',
+    textInfo: '#FFF',
   },
 };
