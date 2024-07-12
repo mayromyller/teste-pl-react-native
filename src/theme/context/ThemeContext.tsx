@@ -1,4 +1,5 @@
 import { createContext, useState, PropsWithChildren } from 'react';
+import { StatusBar } from 'react-native';
 import { ThemeProvider as ThemeProviderStyled } from 'styled-components';
 
 import { darkTheme } from '../darkTheme';
@@ -36,6 +37,10 @@ export function ThemeProvider({ children }: PropsWithChildren) {
 
   return (
     <ThemeContext.Provider value={{ theme, themeType, toggleTheme }}>
+      <StatusBar
+        barStyle={themeType === ThemeType.light ? 'dark-content' : 'light-content'}
+        backgroundColor={themeType === ThemeType.light ? '#fff' : '#000'}
+      />
       <ThemeProviderStyled theme={themes[theme]}>{children}</ThemeProviderStyled>
     </ThemeContext.Provider>
   );
