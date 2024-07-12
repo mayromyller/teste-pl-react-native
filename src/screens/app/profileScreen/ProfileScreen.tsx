@@ -1,4 +1,4 @@
-import { Image, Text, View } from 'react-native';
+import { ActivityIndicator, Image, Text, View } from 'react-native';
 import { useTheme } from 'styled-components/native';
 
 import * as S from './profileScreen.style';
@@ -10,9 +10,15 @@ import { Header } from '~/components/app/header/header';
 import { Screen } from '~/components/app/screen/screen';
 import { TitleSection } from '~/components/app/title-section/titleSecton';
 import { InputField } from '~/components/form/input-field/inputField';
+import { useGetRandomUser } from '~/services/api/randomUser/useGetRandomUser';
+import { dateFormatter } from '~/utils/dateFormatter';
 
 export function ProfileScreen() {
   const { colors } = useTheme();
+
+  const { data, isLoading } = useGetRandomUser();
+  const { first, last } = data?.name ?? 'Não foi possível carregar dados';
+  const email = data?.email ?? 'Não foi possível carregar dados';
 
   return (
     <Screen scrollable={false} headerComponent={<Header canGoBack />}>
@@ -37,33 +43,44 @@ export function ProfileScreen() {
         </S.EditButton>
       </View>
 
-      <BoxCard style={{ marginTop: 20 }}>
-        <S.Box>
-          <S.UserImage
-            source={{ uri: 'https://github.com/mayromyller.png' }}
-            alt="Imagem do usuário"
-          />
+      {isLoading ? (
+        <ActivityIndicator size="large" color={colors.primary} />
+      ) : (
+        <>
+          <BoxCard style={{ marginTop: 20 }}>
+            <S.Box>
+              {data.picture && (
+                <S.UserImage source={{ uri: data.picture.large }} alt="Imagem do usuário" />
+              )}
 
-          <View>
-            <S.Text>Mayro Myller</S.Text>
-            <S.HelText>mayro.mmdev@gmail.com</S.HelText>
-          </View>
-        </S.Box>
-      </BoxCard>
+              <View>
+                <S.Text>
+                  {first} {last}
+                </S.Text>
+                <S.HelText>{email}</S.HelText>
+              </View>
+            </S.Box>
+          </BoxCard>
 
-      <BoxCard style={{ marginTop: 16, gap: 24 }}>
-        <InputField
-          text="Phone Number"
-          placeholder="64 012 3456"
-          value="+55 (89) 99435-8181"
-          startComponent={
-            <Image source={CountryImage} style={{ width: 24, height: 24, borderRadius: 12 }} />
-          }
-        />
-        <InputField text="E-mail" placeholder="" value="mayro.mmdev@gmail.com" />
-        <InputField text="Gender" placeholder="64 012 3456" value="Male" />
-        <InputField text="Date of birth" placeholder="64 012 3456" value="No set" />
-      </BoxCard>
+          <BoxCard style={{ marginTop: 16, gap: 24 }}>
+            <InputField
+              text="Phone Number"
+              placeholder="64 012 3456"
+              value={data?.phone ?? ''}
+              startComponent={
+                <Image source={CountryImage} style={{ width: 24, height: 24, borderRadius: 12 }} />
+              }
+            />
+            <InputField text="E-mail" placeholder="" value={email} />
+            <InputField text="Gender" placeholder="64 012 3456" value={data?.gender ?? ''} />
+            <InputField
+              text="Date of birth"
+              placeholder="64 012 3456"
+              value={dateFormatter(data?.dob?.date)}
+            />
+          </BoxCard>
+        </>
+      )}
     </Screen>
   );
 }
