@@ -7,7 +7,7 @@ import { useTheme } from 'styled-components/native';
 import * as S from './drawerContent.style';
 
 import { HelpIcon } from '~/assets/icons/helpIcon';
-import { ToggleThemeButton } from '~/components/app/toggleThemeButon';
+import { ToggleThemeButton } from '~/components/app/toggleThemeButton';
 
 export function DrawerContent(props: any) {
   const { colors } = useTheme();
