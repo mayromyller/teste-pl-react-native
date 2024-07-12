@@ -3,9 +3,9 @@ import { createBottomTabNavigator, BottomTabBarProps } from '@react-navigation/b
 import { AppTabBar } from './appTabBar/AppTabBar';
 
 import { FeedbackScreen } from '~/screens/app/FeedbackScreen';
-import { HomeScreen } from '~/screens/app/HomeScreen';
 import { NotificationScreen } from '~/screens/app/NotificationScreen';
 import { ServicesScreen } from '~/screens/app/ServicesScreen';
+import { HomeScreen } from '~/screens/app/homeScreen/HomeScreen';
 
 export type BottomTabParamList = {
   HomeScreen: undefined;
