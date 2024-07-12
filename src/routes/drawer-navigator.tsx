@@ -24,7 +24,7 @@ export default function DrawerNavigator({ navigation }: Props) {
   return (
     <Drawer.Navigator
       screenOptions={{
-        headerShown: true,
+        headerShown: false,
         drawerActiveTintColor: colors.drawerActiveTintColor,
         drawerActiveBackgroundColor: colors.drawerActiveBackgroundColor,
         drawerInactiveTintColor: colors.drawerInactiveTintColor,

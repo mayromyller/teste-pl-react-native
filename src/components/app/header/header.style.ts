@@ -7,6 +7,6 @@ export const Box = styled.View`
     padding: 12px 16px;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    gap: 12px;
   `}
 `;
