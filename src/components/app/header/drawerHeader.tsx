@@ -5,6 +5,7 @@ import * as S from './header.style';
 
 import { ArrowDownIcon } from '~/assets/icons/arrowDownIcon';
 import { MenuIcon } from '~/assets/icons/menuIcon';
+import { useGetRandomUser } from '~/services/api/randomUser/useGetRandomUser';
 
 type Props = {
   onPress: () => void;
@@ -12,6 +13,12 @@ type Props = {
 
 export function DrawerHeader({ onPress }: Props) {
   const { colors } = useTheme();
+
+  const { data } = useGetRandomUser();
+
+  const { number, name } = data?.location?.street ?? {};
+  const fullAddress =
+    number && name ? `${number}, ${name}` : 'Não foi possível carregar o endereço';
 
   return (
     <S.Box style={{ paddingHorizontal: 16, paddingVertical: 20 }}>
@@ -36,7 +43,7 @@ export function DrawerHeader({ onPress }: Props) {
               fontSize: 13,
               fontWeight: '600',
             }}>
-            15A, James Streets
+            {fullAddress}
           </Text>
           <View style={{ marginTop: 4 }}>
             <ArrowDownIcon color={colors.textInfo} />

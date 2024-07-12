@@ -1,5 +1,5 @@
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { useNavigation } from '@react-navigation/native';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from 'styled-components/native';
@@ -8,6 +8,7 @@ import * as S from './drawerContent.style';
 
 import { HelpIcon } from '~/assets/icons/helpIcon';
 import { ToggleThemeButton } from '~/components/app/toggleThemeButton';
+import { useGetRandomUser } from '~/services/api/randomUser/useGetRandomUser';
 
 export function DrawerContent(props: any) {
   const { colors } = useTheme();
@@ -17,7 +18,13 @@ export function DrawerContent(props: any) {
 
   function handleNavigateToProfile() {
     navigation.navigate('ProfileScreen');
+    navigation.dispatch(DrawerActions.closeDrawer());
   }
+
+  const { data } = useGetRandomUser();
+  const { first, last } = data?.name ?? {};
+  const email = data?.email ?? '';
+  const { large } = data?.picture ?? {};
 
   return (
     <View style={{ flex: 1 }}>
@@ -29,14 +36,13 @@ export function DrawerContent(props: any) {
           backgroundColor: colors.drawerBackground,
         }}>
         <S.Box onPress={handleNavigateToProfile}>
-          <S.UserImage
-            source={{ uri: 'https://github.com/mayromyller.png' }}
-            alt="Imagem do usuário"
-          />
+          <S.UserImage source={{ uri: large }} alt="Imagem do usuário" />
 
           <View>
-            <S.Text>Mayro Myller</S.Text>
-            <S.HelText>mayro.mmdev@gmail.com</S.HelText>
+            <S.Text>
+              {first} {last}
+            </S.Text>
+            <S.HelText>{email}</S.HelText>
           </View>
         </S.Box>
 
