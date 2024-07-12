@@ -15,19 +15,27 @@ const themes = {
 };
 
 export const ThemeContext = createContext({
-  theme: ThemeType.light,
-  toggleTheme: (theme: ThemeType) => {},
+  theme: '',
+  themeType: ThemeType.light,
+  toggleTheme: (theme: string) => {},
 });
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setTheme] = useState(ThemeType.light);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [themeType, setThemeType] = useState(ThemeType.light);
 
-  function toggleTheme(theme: ThemeType) {
-    setTheme(theme);
+  function toggleTheme(theme: string) {
+    if (theme === 'light') {
+      setTheme('light');
+      setThemeType(ThemeType.light);
+    } else {
+      setTheme('dark');
+      setThemeType(ThemeType.dark);
+    }
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, themeType, toggleTheme }}>
       <ThemeProviderStyled theme={themes[theme]}>{children}</ThemeProviderStyled>
     </ThemeContext.Provider>
   );
