@@ -26,6 +26,8 @@ declare module 'styled-components/native' {
       drawerActiveBackgroundColor: string;
       drawerActiveTintColor: string;
       drawerInactiveTintColor: string;
+
+      textInfo: string;
     };
   }
 }
