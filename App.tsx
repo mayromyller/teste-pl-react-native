@@ -9,11 +9,14 @@ import {
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
+import { LogBox } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import RootStack from './src/routes';
 
 import { ThemeProvider } from '~/theme/context/ThemeContext';
+
+LogBox.ignoreLogs(['[Reanimated] Reduced motion setting is enabled on this device.']);
 
 export default function App() {
   const [fontsLoaded] = Font.useFonts({

@@ -18,17 +18,15 @@ export function Screen({ children, scrollable = false, headerComponent }: Screen
   const Container = scrollable ? ScrollViewContainer : ViewContainer;
 
   return (
-    <>
+    <Container backgroundColor={colors.background}>
       <View>{headerComponent}</View>
-      <Container backgroundColor={colors.background}>
-        <View
-          style={{
-            paddingHorizontal: 16,
-            paddingBottom: bottom,
-          }}>
-          {children}
-        </View>
-      </Container>
-    </>
+      <View
+        style={{
+          paddingHorizontal: 16,
+          paddingBottom: bottom,
+        }}>
+        {children}
+      </View>
+    </Container>
   );
 }

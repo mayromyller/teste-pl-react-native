@@ -27,11 +27,6 @@ export function ListViewOption() {
           alignItems: 'center',
           justifyContent: 'center',
           borderRadius: 8,
-          shadowColor: 'rgba(0, 0, 0, 0.4)',
-          shadowOffset: { width: 0, height: 3 },
-          shadowOpacity: 0.8,
-          shadowRadius: 7.68,
-          elevation: 8,
         },
         listLight: {
           backgroundColor: activeView === 'list' ? '#FCFCFC' : '#F7F7F7',
