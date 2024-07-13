@@ -46,7 +46,7 @@ Utilizando aplicativo [Expo Go](https://play.google.com/store/apps/details?id=ho
 
 Demonstração de uso do aplicativo:
 
-https://github.com/user-attachments/assets/ae4366ff-b0e4-4ccd-b912-341e4b75cfed
+https://github.com/user-attachments/assets/8ec12c64-c8fb-4f28-9e0d-c3169f4ba1e7
 
 ## Tecnologias
 
