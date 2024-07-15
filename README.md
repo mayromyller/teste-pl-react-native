@@ -61,11 +61,11 @@ Dentre as tecnologias utilizadas, destaco:
 
 ## Detalhes
 
-A aplicação está integrada com a API pública do Random User Generator, disponível em [https://randomuser.me/](https://randomuser.me/). As chamadas são feitas utilizando a biblioteca [Axios](https://github.com/axios/axios). Ao abrir a aplicação ela carregar detalhes de endereço do usuário como endereço. Ao abrir o menu lateral (Drawer), é possível ver a imagem que é carregada também via API. Ao clicar na imagem é possível acessar os detalhes do perfil do usuário.
+A aplicação está integrada à API pública do Random User Generator, disponível em [https://randomuser.me/](https://randomuser.me/). As requisições são realizadas utilizando a biblioteca [Axios](https://github.com/axios/axios). Ao abrir a aplicação, são carregados automaticamente os detalhes do usuário, como endereço. Ao abrir o menu lateral (Drawer), é possível visualizar a imagem do usuário, que também é carregada via API. Clicando na imagem, é possível acessar os detalhes completos do perfil do usuário.
 
-Na tela de perfil é possível ver os dados do usuário, como nome, data de nascimento, endereço, telefone e email. Como a API do Random User carrega sempre dados aleatórios, é possível ver diferentes perfis com diferentes dados ao navegar pelo aplicativo.
+Na tela de perfil, são exibidas informações como nome, data de nascimento, endereço, telefone e email. Como a API do Random User gera dados aleatórios a cada solicitação, é possível visualizar diferentes perfis ao navegar pelo aplicativo, proporcionando uma experiência dinâmica e variada.
 
 ## Contato
 
 - [Linkedin - Mayro Myller](https://www.linkedin.com/in/mayromyller/)
-- Email: mayromyller@gmail.com
+- Email: mayro.mmdev@gmail.com
